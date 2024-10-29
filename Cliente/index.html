@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sprint 1</title>
+    <script src="./cliente/clienteRest.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="./Cliente/controlWeb.js"></script>
+    <script src="./Cliente/clienteRest.js"></script>
+
+    <!-- <script src="./modelo.js"></script> -->
+
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <!-- Brand/logo -->
+        <a class="navbar-brand" href="#">Logo</a>
+
+        <!-- Links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Para ti</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Historia</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">¿Quiénes somos?</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h3>Tres en Rayas</h3>
+        <p>Juega una partida contra otros participantes de forma online. ¿Quién ganará?</p>
+    </div>
+    <div id="agregarUsuario"></div>
+    <script>    //Lo que se ejecutará siempre al iniciar la página
+        let rest = new ClienteRest();
+        let cw = new ControlWeb();
+        cw.mostrarAgregarUsuario();
+    </script>
+</body>
+
+</html>
