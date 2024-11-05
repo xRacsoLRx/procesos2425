@@ -2,17 +2,21 @@ function ClienteRest() {
     // Método para agregar un usuario    
     this.agregarUsuario = function (nick) {
         var cli = this;
+        if(!nick || nick == ""){
+            return 0;
+        }
         $.getJSON("/agregarUsuario/" + nick, function (data) {
             let msg = "El nick " + nick + " está ocupado";
             if (data.nick != -1) {
                 console.log("Usuario " + nick + " ha sido registrado");
-                msg = "Bienvenido al sistema, " + nick;
+                msg = "Bienvenido a la tierra de Gharbast, " + nick;
                 localStorage.setItem("nick", nick);
             }
             else {
                 console.log("El nick ya está ocupado");
             }
-            cw.mostrarMensaje(msg);
+            cw.mostrarMsg(msg);
+            cw.mostrarHome();
         });
     }
 
@@ -54,6 +58,8 @@ function ClienteRest() {
         $.getJSON("/eliminarUsuario/" + nick, function (data) {
             if (data.eliminado) {
                 console.log("El usuario " + nick + " ha sido eliminado");
+                localStorage.removeItem("nick");
+                location.reload();
             } else {
                 console.log("El usuario " + nick + " no existe");
             }

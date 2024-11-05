@@ -22,7 +22,11 @@ app.get("/agregarUsuario/:nick", function (request, response) {
     //Ojo, estoy asumiendo que agregarUsuario(nick) es una llamada síncrona
     response.send(res);
 });
-
+app.get("/eliminarUsuario/:nick", function (request, response) {
+    let nick = request.params.nick;
+    let res = sistema.eliminarUsuario(nick);
+    response.send(res);
+});
 app.get("/obtenerUsuarios", function (request, response) {
     let res = sistema.obtenerUsuarios();
     response.send(res);
