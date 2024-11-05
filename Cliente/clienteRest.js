@@ -10,7 +10,7 @@ function ClienteRest() {
             if (data.nick != -1) {
                 console.log("Usuario " + nick + " ha sido registrado");
                 msg = "Bienvenido a la tierra de Gharbast, " + nick;
-                localStorage.setItem("nick", nick);
+                $.cookie("nick", nick);
             }
             else {
                 console.log("El nick ya está ocupado");
@@ -58,7 +58,7 @@ function ClienteRest() {
         $.getJSON("/eliminarUsuario/" + nick, function (data) {
             if (data.eliminado) {
                 console.log("El usuario " + nick + " ha sido eliminado");
-                localStorage.removeItem("nick");
+                $.removeCookie("nick");
                 location.reload();
             } else {
                 console.log("El usuario " + nick + " no existe");

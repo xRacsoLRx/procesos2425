@@ -1,6 +1,6 @@
 function ControlWeb() {
     this.comprobarSesion = function () {
-        let nick = localStorage.getItem("nick");
+        let nick = $.cookie("nick");
         if (!nick) {
             cw.mostrarAgregarUsuario();
         }
@@ -11,7 +11,7 @@ function ControlWeb() {
     this.mostrarAgregarUsuario = function () {
         this.limpiar();
         let cadena = '<div id="mAU" class="form-group">';
-        cadena = cadena + '<label for="nick">Introduce un nick: </label>';
+        cadena = cadena + '<label for="nick">Introduce el nombre de tu personaje: </label>';
         cadena = cadena + '<input type="text" class="form-control" id="nick">';
         cadena = cadena + '<button id="btNAU" type="submit" class="btn btn-primary">Agregar usuario</button>';
         cadena = cadena + '<div id=msg></div>'
@@ -37,7 +37,7 @@ function ControlWeb() {
         $('#msg').append(cadena);
     }
     this.salir = function () {
-        let nick = localStorage.getItem("nick");
+        let nick = $.cookie("nick");
         if (nick || nick == "") {
             rest.eliminarUsuario(nick);
         }
