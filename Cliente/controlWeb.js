@@ -24,7 +24,17 @@ function ControlWeb() {
     }
     this.mostrarMsg = function (cadena) {
         $('#txt').remove();
-        let cadena2="<div id='txt'>"+cadena+'</div>';
+        let cadena2 = "<div id='txt'>" + cadena + '</div>';
         $('#msg').append(cadena);
     }
+    this.comprobarSesion = function () {
+        let nick = localStorage.getItem("nick");
+        if (nick) {
+            cw.mostrarMensaje("Bienvenido al sistema, " + nick);
+        }
+        else {
+            cw.mostrarAgregarUsuario();
+        }
+    }
+    
 }
